@@ -1,5 +1,19 @@
 Rails.application.routes.draw do
 
+  # You can have the root of your site routed with "root"
+  root 'home#index'
+
+  get 'admins/index'
+
+  get 'employees/index'
+
+  get 'home/index'
+
+  get '/users', to: 'home#index', as: 'user'
+
+  devise_for :employees
+  devise_for :admins
+
   # Use created (customized) controllers instead of the default.
   devise_for :users, :controllers => {
                        :registrations => "registrations",
@@ -14,15 +28,8 @@ Rails.application.routes.draw do
 
   #get 'registrations/update'
 
-  get 'home/index'
-
-  get '/users', to: 'home#index', as: 'user'
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
-  root 'home#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 
   validates :username, uniqueness: { case_sensitive: false }
 
-  # Overwrites devise function to authenticate using sign_in field
+  # Overwrites devise function to authenticate using login field
   def self.find_first_by_auth_conditions(warden_conditions)
 
     conditions = (warden_conditions.dup.respond_to?(:permit))?
