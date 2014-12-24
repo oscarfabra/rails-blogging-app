@@ -7,9 +7,9 @@ class ApplicationController < ActionController::Base
 
   protected
 
-    # Configures mass assignment rules for the devise controllers
+    # Configures mass assignment rules for the devise controllers.
     def configure_permitted_parameters
-      devise_parameter_sanitizer.for(:login) {
+      devise_parameter_sanitizer.for(:sign_in) {
           |u| u.permit(:login)
       }
       devise_parameter_sanitizer.for(:sign_up) {
