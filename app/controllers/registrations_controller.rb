@@ -1,5 +1,20 @@
 class RegistrationsController < Devise::RegistrationsController
 
+  # Used to show the sign up form.
+  def new
+    super
+  end
+
+  # Triggered when user sends data to sign up.
+  def create
+    super
+  end
+
+  # Used to show the edit form.
+  def edit
+    super
+  end
+
   # Called when user sends data to edit its details.
   def update
     new_params = params.require(:user).permit(:email,

@@ -1,18 +1,23 @@
 Rails.application.routes.draw do
 
-  get 'registrations/update'
+  # Use created (customized) controllers instead of the default.
+  devise_for :users, :controllers => {
+                       :registrations => "registrations",
+                       #:confirmations => "confirmations",
+                       :sessions => "sessions"#,
+                       #:passwords => "passwords"
+                   }
+
+  #get 'sessions/new'
+
+  #get 'sessions/create'
+
+  #get 'registrations/update'
 
   get 'home/index'
 
   get '/users', to: 'home#index', as: 'user'
 
-  # Use created (customized) controllers instead of the default.
-  devise_for :users, :controllers => {
-                       :registrations => "registrations"#,
-                       #:confirmations => "confirmations",
-                       #:sessions => "sessions",
-                       #:passwords => "passwords"
-                   }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
