@@ -17,15 +17,16 @@
         <td><%= post.user %></td>
         <td><%= post.title %></td>
         <td><%= post.content %></td>
-        <td><%= post.is_restricted %></td>
+        <td><%= (post.is_restricted)? "true" : "false" %></td>
         <td><%= link_to 'Show', post %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
         <td>
           <% if can?(:destroy, post) %>
             <%= link_to 'Destroy', post, class: 'btn-gray thinner-padding',
                         method: :delete, data: { confirm: 'Are you sure?' } %>
-          <% else %>
-            &nbsp;
+          <% end %>
+          <% if cannot?(:destroy, post) %>
+            <p>Cannot delete.</p>
           <% end %>
         </td>
       </tr>

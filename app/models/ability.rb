@@ -30,6 +30,7 @@ class Ability
     # https://github.com/ryanb/cancan/wiki/Defining-Abilities
 
     def initialize(user)
+
       if user && user.persisted? # Logged-in user.
         # User can destroy his/her own post.
         can :destroy, Post, user_id: user.id

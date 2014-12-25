@@ -13,6 +13,7 @@ class PostsController < ApplicationController
   end
 
   def new
+    # authorize! :new, Post
     @post = Post.new
     respond_with(@post)
   end
@@ -32,6 +33,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    # authorize! :destroy, @post
     @post.destroy
     respond_with(@post)
   end
