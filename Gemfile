@@ -30,7 +30,10 @@ gem 'spring',        group: :development
 gem 'devise'
 
 # Adds CanCan gem for user roles and authorization.
-gem "cancan"
+gem 'cancan'
+
+# Allows to make sample users with semi-realistic names and email addresses
+gem 'faker'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
