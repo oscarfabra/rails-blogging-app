@@ -13,15 +13,19 @@
 #   user.encrypted_password = User.new(password: "password").encrypted_password
 # end
 
+# Creates two new users with confirmed accounts.
+# Pre: emails and usernames are not currently present in users table.
 writer = User.create!(email: "writer@example.org",
                       username: "writer",
                       password: "password123",
-                      encrypted_password: User.new(password: "password123").encrypted_password)
+                      encrypted_password: User.new(password: "password123").encrypted_password,
+                      confirmed_at: Time.now)
 
 junior = User.create!(email: "junior@example.org",
                       username: "junior",
                       password: "password123",
-                      encrypted_password: User.new(password: "password123").encrypted_password)
+                      encrypted_password: User.new(password: "password123").encrypted_password,
+                      confirmed_at: Time.now)
 
 Post.create!(user: writer,
              title: "Hot Day",
